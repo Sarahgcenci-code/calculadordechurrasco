@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAPA</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<h1>Calculadora de Churrasco!</h1>
+<img src="Presidente_Temer_comendo_Churrasco.png" alt="">
+<p>A arte do churrasco implica em saber dominar o ponto da carne, <br> em saber escolher carnes de boa qualidade e também em saber estimar as compras para que tenha comida para todo mundo, sem exagerar nos gastos.</p>
+<hr>
+<h3>Então, vamor fazer um churrasco?</h3>
+
+<body>
+    <h2>Calculadora de Churrasco</h2>
+    <form onsubmit="calcularCarne(event)">
+        <label for="mulheres">Mulheres:</label>
+        <input type="number" id="mulheres" name="mulheres">
+
+        <label for="homens">Homens:</label>
+        <input type="number" id="homens" name="homens">
+
+        <label for="criancas">Crianças:</label>
+        <input type="number" id="criancas" name="criancas">
+        <button type="submit">Calcular</button>
+    </form>
+
+    <div class="resultado" id="resultado" style="display: none;">
+        <h3>Quantidade de itens necessária:</h3>
+        <p id="totalItens"></p>
+    </div>
+
+    <script>
+        function calcularCarne(event) {
+            event.preventDefault();
+
+            
+            var mulheres = parseInt(document.getElementById('mulheres').value);
+            var homens = parseInt(document.getElementById('homens').value);
+            var criancas = parseInt(document.getElementById('criancas').value);
+
+            
+            var linguicaTotal = mulheres * 200 + homens * 200 + criancas * 200;
+            var refrigeranteTotal = mulheres * 400 + homens * 300 + criancas * 200;
+            var cervejaTotal = mulheres * 500 + homens * 800;
+            var frangoTotal = mulheres * 200 + homens * 200 + 100 * criancas
+            var carneBovinaTotal = mulheres * 300 + homens * 500 + criancas * 200
+
+            
+            var resultadoElement = document.getElementById('resultado');
+            var totalItensElement = document.getElementById('totalItens');
+
+
+            totalItensElement.innerHTML = 
+            ` * Carne Bovina : ${carneBovinaTotal/1000}kg<br>
+            * Frango: ${frangoTotal/1000}kg<br>
+            * Linguiça: ${linguicaTotal/1000}kg<br>
+            * Refrigerante: ${refrigeranteTotal/1000}ml<br>
+            * Cerveja: ${cervejaTotal/1000}ml`
+            ;
+
+
+            resultadoElement.style.display = 'block';
+        }
+    </script>
+            <h2>Bom churras!</h2>
+
+</body>
+</html>
